@@ -1,0 +1,529 @@
+{
+  "info": {
+    "_postman_id": "smart-library-api",
+    "name": "Smart Library API",
+    "description": "Collection untuk testing semua API endpoints Smart Library",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "http://localhost:3000",
+      "type": "string",
+      "description": "Base URL untuk API Smart Library. Ubah sesuai server yang digunakan."
+    }
+  ],
+  "item": [
+    {
+      "name": "Authors",
+      "item": [
+        {
+          "name": "Get All Authors",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/authors",
+              "host": ["{{base_url}}"],
+              "path": ["api", "authors"]
+            },
+            "description": "Mengambil semua data penulis"
+          },
+          "response": []
+        },
+        {
+          "name": "Search Authors by Name",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/authors?name=Haruki",
+              "host": ["{{base_url}}"],
+              "path": ["api", "authors"],
+              "query": [
+                {
+                  "key": "name",
+                  "value": "Haruki"
+                }
+              ]
+            },
+            "description": "Mencari penulis berdasarkan nama"
+          },
+          "response": []
+        },
+        {
+          "name": "Get Author by ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/authors/author-id-here",
+              "host": ["{{base_url}}"],
+              "path": ["api", "authors", "author-id-here"]
+            },
+            "description": "Mengambil data penulis berdasarkan ID"
+          },
+          "response": []
+        },
+        {
+          "name": "Create Author",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Haruki Murakami\",\n  \"nationality\": \"Japan\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/authors",
+              "host": ["{{base_url}}"],
+              "path": ["api", "authors"]
+            },
+            "description": "Membuat data penulis baru"
+          },
+          "response": []
+        },
+        {
+          "name": "Update Author",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Haruki Murakami (Updated)\",\n  \"nationality\": \"Japan\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/authors/author-id-here",
+              "host": ["{{base_url}}"],
+              "path": ["api", "authors", "author-id-here"]
+            },
+            "description": "Memperbarui data penulis"
+          },
+          "response": []
+        },
+        {
+          "name": "Delete Author",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/authors/author-id-here",
+              "host": ["{{base_url}}"],
+              "path": ["api", "authors", "author-id-here"]
+            },
+            "description": "Menghapus data penulis"
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Categories",
+      "item": [
+        {
+          "name": "Get All Categories",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/categories",
+              "host": ["{{base_url}}"],
+              "path": ["api", "categories"]
+            },
+            "description": "Mengambil semua data kategori"
+          },
+          "response": []
+        },
+        {
+          "name": "Search Categories by Name",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/categories?name=Fiction",
+              "host": ["{{base_url}}"],
+              "path": ["api", "categories"],
+              "query": [
+                {
+                  "key": "name",
+                  "value": "Fiction"
+                }
+              ]
+            },
+            "description": "Mencari kategori berdasarkan nama"
+          },
+          "response": []
+        },
+        {
+          "name": "Get Category by ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/categories/category-id-here",
+              "host": ["{{base_url}}"],
+              "path": ["api", "categories", "category-id-here"]
+            },
+            "description": "Mengambil data kategori berdasarkan ID"
+          },
+          "response": []
+        },
+        {
+          "name": "Create Category",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Science Fiction\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/categories",
+              "host": ["{{base_url}}"],
+              "path": ["api", "categories"]
+            },
+            "description": "Membuat data kategori baru"
+          },
+          "response": []
+        },
+        {
+          "name": "Update Category",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Science Fiction (Updated)\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/categories/category-id-here",
+              "host": ["{{base_url}}"],
+              "path": ["api", "categories", "category-id-here"]
+            },
+            "description": "Memperbarui data kategori"
+          },
+          "response": []
+        },
+        {
+          "name": "Delete Category",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/categories/category-id-here",
+              "host": ["{{base_url}}"],
+              "path": ["api", "categories", "category-id-here"]
+            },
+            "description": "Menghapus data kategori"
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Books",
+      "item": [
+        {
+          "name": "Get All Books",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/books",
+              "host": ["{{base_url}}"],
+              "path": ["api", "books"]
+            },
+            "description": "Mengambil semua data buku dengan detail penulis dan kategori"
+          },
+          "response": []
+        },
+        {
+          "name": "Search Books by Title",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/books?title=Norwegian",
+              "host": ["{{base_url}}"],
+              "path": ["api", "books"],
+              "query": [
+                {
+                  "key": "title",
+                  "value": "Norwegian"
+                }
+              ]
+            },
+            "description": "Mencari buku berdasarkan judul"
+          },
+          "response": []
+        },
+        {
+          "name": "Get Book by ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/books/book-id-here",
+              "host": ["{{base_url}}"],
+              "path": ["api", "books", "book-id-here"]
+            },
+            "description": "Mengambil data buku berdasarkan ID"
+          },
+          "response": []
+        },
+        {
+          "name": "Create Book",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"isbn\": \"978-0451524935\",\n  \"title\": \"Norwegian Wood\",\n  \"author_id\": \"author-id-here\",\n  \"category_id\": \"category-id-here\",\n  \"total_copies\": 5\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/books",
+              "host": ["{{base_url}}"],
+              "path": ["api", "books"]
+            },
+            "description": "Membuat data buku baru"
+          },
+          "response": []
+        },
+        {
+          "name": "Update Book",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"isbn\": \"978-0451524935\",\n  \"title\": \"Norwegian Wood (Updated)\",\n  \"author_id\": \"author-id-here\",\n  \"category_id\": \"category-id-here\",\n  \"total_copies\": 10\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/books/book-id-here",
+              "host": ["{{base_url}}"],
+              "path": ["api", "books", "book-id-here"]
+            },
+            "description": "Memperbarui data buku"
+          },
+          "response": []
+        },
+        {
+          "name": "Delete Book",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/books/book-id-here",
+              "host": ["{{base_url}}"],
+              "path": ["api", "books", "book-id-here"]
+            },
+            "description": "Menghapus data buku"
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Members",
+      "item": [
+        {
+          "name": "Get All Members",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/members",
+              "host": ["{{base_url}}"],
+              "path": ["api", "members"]
+            },
+            "description": "Mengambil semua data anggota"
+          },
+          "response": []
+        },
+        {
+          "name": "Get Member by ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/members/member-id-here",
+              "host": ["{{base_url}}"],
+              "path": ["api", "members", "member-id-here"]
+            },
+            "description": "Mengambil data anggota berdasarkan ID"
+          },
+          "response": []
+        },
+        {
+          "name": "Register Member",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"full_name\": \"John Doe\",\n  \"email\": \"john.doe@example.com\",\n  \"member_type\": \"Regular\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/members",
+              "host": ["{{base_url}}"],
+              "path": ["api", "members"]
+            },
+            "description": "Mendaftarkan anggota baru"
+          },
+          "response": []
+        },
+        {
+          "name": "Update Member",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"full_name\": \"John Doe (Updated)\",\n  \"email\": \"john.doe.updated@example.com\",\n  \"member_type\": \"Premium\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/members/member-id-here",
+              "host": ["{{base_url}}"],
+              "path": ["api", "members", "member-id-here"]
+            },
+            "description": "Memperbarui data anggota"
+          },
+          "response": []
+        },
+        {
+          "name": "Delete Member",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/members/member-id-here",
+              "host": ["{{base_url}}"],
+              "path": ["api", "members", "member-id-here"]
+            },
+            "description": "Menghapus data anggota"
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Loans",
+      "item": [
+        {
+          "name": "Get All Loans",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/loans",
+              "host": ["{{base_url}}"],
+              "path": ["api", "loans"]
+            },
+            "description": "Mengambil semua data peminjaman dengan detail buku dan member"
+          },
+          "response": []
+        },
+        {
+          "name": "Get Loan by ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/loans/loan-id-here",
+              "host": ["{{base_url}}"],
+              "path": ["api", "loans", "loan-id-here"]
+            },
+            "description": "Mengambil data peminjaman berdasarkan ID"
+          },
+          "response": []
+        },
+        {
+          "name": "Create Loan (Borrow Book)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"book_id\": \"book-id-here\",\n  \"member_id\": \"member-id-here\",\n  \"due_date\": \"2026-05-04\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/loans",
+              "host": ["{{base_url}}"],
+              "path": ["api", "loans"]
+            },
+            "description": "Membuat data peminjaman baru (mengurangi stok buku secara otomatis)"
+          },
+          "response": []
+        },
+        {
+          "name": "Return Loan (Return Book)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": {
+              "raw": "{{base_url}}/api/loans/loan-id-here/return",
+              "host": ["{{base_url}}"],
+              "path": ["api", "loans", "loan-id-here", "return"]
+            },
+            "description": "Mengembalikan buku (mengubah status menjadi RETURNED dan menambah stok buku secara otomatis)"
+          },
+          "response": []
+        }
+      ]
+    }
+  ]
+}

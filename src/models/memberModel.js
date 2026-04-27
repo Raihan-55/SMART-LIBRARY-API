@@ -6,6 +6,12 @@ export const MemberModel = {
     return result.rows;
   },
 
+  async getById(id) {
+    const query = 'SELECT * FROM members WHERE id = $1';
+    const result = await pool.query(query, [id]);
+    return result.rows[0];
+  },
+
   async create(data) {
     const { full_name, email, member_type } = data;
     const query = `
@@ -13,6 +19,23 @@ export const MemberModel = {
       VALUES ($1, $2, $3) RETURNING *
     `;
     const result = await pool.query(query, [full_name, email, member_type]);
+    return result.rows[0];
+  },
+
+  async update(id, data) {
+    const { full_name, email, member_type } = data;
+    const query = `
+      UPDATE members 
+      SET full_name = $2, email = $3, member_type = $4
+      WHERE id = $1 RETURNING *
+    `;
+    const result = await pool.query(query, [id, full_name, email, member_type]);
+    return result.rows[0];
+  },
+
+  async delete(id) {
+    const query = 'DELETE FROM members WHERE id = $1 RETURNING *';
+    const result = await pool.query(query, [id]);
     return result.rows[0];
   }
 };

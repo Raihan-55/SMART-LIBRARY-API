@@ -7,15 +7,18 @@ Dokumentasi lengkap untuk testing semua API Smart Library dengan berbagai metode
 ## 📋 FILES YANG TERSEDIA
 
 ### **1. `Smart_Library_API.postman_collection.json`** 📮
+
 File koleksi Postman yang siap diimport.
 
 **Untuk siapa?** Developer yang menggunakan Postman Desktop atau Web
-**Isi:** 
+**Isi:**
+
 - 25+ endpoints siap pakai
 - Organized dalam 5 folder: Authors, Categories, Books, Members, Loans
 - Pre-built request bodies
 
 **Cara pakai:**
+
 1. Buka Postman
 2. Klik Import → Upload file ini
 3. Klik-klik endpoint, modifikasi ID jika perlu
@@ -25,14 +28,16 @@ File koleksi Postman yang siap diimport.
 ✅ Paling mudah dan visual  
 ✅ Bisa save response  
 ✅ Bisa organize request dalam folder  
-✅ Support environment variables  
+✅ Support environment variables
 
 ---
 
 ### **2. `POSTMAN_TESTING_GUIDE.md`** 📖
+
 Panduan lengkap cara menggunakan Postman.
 
 **Isi:**
+
 - Cara import collection
 - Struktur folder & endpoint
 - Testing workflow lengkap
@@ -41,6 +46,7 @@ Panduan lengkap cara menggunakan Postman.
 - Tips penggunaan
 
 **Baca ini ketika:**
+
 - Baru pertama kali pakai Postman
 - Ingin tahu workflow lengkap
 - Perlu contoh request & response
@@ -49,9 +55,11 @@ Panduan lengkap cara menggunakan Postman.
 ---
 
 ### **3. `CURL_TESTING_COMMANDS.md`** 💻
+
 Referensi curl commands untuk terminal/command line.
 
 **Isi:**
+
 - 20+ curl commands lengkap
 - Grouped by endpoint (Authors, Categories, Books, dll)
 - Testing workflow example
@@ -60,6 +68,7 @@ Referensi curl commands untuk terminal/command line.
 - Cara pretty print JSON
 
 **Gunakan ketika:**
+
 - Tidak ingin install Postman
 - Prefer command line
 - Automation/scripting
@@ -69,14 +78,16 @@ Referensi curl commands untuk terminal/command line.
 ✅ No software needed, hanya terminal  
 ✅ Bisa dipakai di server/Linux  
 ✅ Bisa diautomasi dalam script  
-✅ Cepat untuk testing quick  
+✅ Cepat untuk testing quick
 
 ---
 
 ### **4. `QUICK_REFERENCE.md`** ⚡
+
 Cheat sheet singkat (one-page reference).
 
 **Isi:**
+
 - Tabel semua endpoints
 - Status codes
 - Workflow umum
@@ -85,6 +96,7 @@ Cheat sheet singkat (one-page reference).
 - Setup cepat
 
 **Gunakan untuk:**
+
 - Referensi cepat (2 menit)
 - Inget lagi nama endpoint
 - Lihat struktur request body
@@ -93,6 +105,7 @@ Cheat sheet singkat (one-page reference).
 ---
 
 ### **5. `README.md`** 📚
+
 File ini - dokumentasi testing keseluruhan.
 
 ---
@@ -100,6 +113,7 @@ File ini - dokumentasi testing keseluruhan.
 ## 🚀 MULAI TESTING - CHOOSE YOUR PATH
 
 ### **Path A: Saya pengen pakai GUI (Paling Mudah)** 🎨
+
 1. Download & install [Postman](https://www.postman.com/downloads/)
 2. Buka Postman
 3. Klik **Import** → Pilih `Smart_Library_API.postman_collection.json`
@@ -112,6 +126,7 @@ File ini - dokumentasi testing keseluruhan.
 ---
 
 ### **Path B: Saya pengen pakai Terminal (Tanpa Install)** 🖥️
+
 1. Buka terminal/command prompt
 2. Copy-paste curl command dari `CURL_TESTING_COMMANDS.md`
 3. Ganti `{id}` dengan ID yang sebenarnya
@@ -119,6 +134,7 @@ File ini - dokumentasi testing keseluruhan.
 5. Response langsung muncul di terminal
 
 **Example:**
+
 ```bash
 curl http://localhost:3000/api/books
 ```
@@ -128,6 +144,7 @@ curl http://localhost:3000/api/books
 ---
 
 ### **Path C: Saya mau Quick Reference (Paling Cepat)** ⚡
+
 1. Buka `QUICK_REFERENCE.md`
 2. Cari endpoint yang kamu cari
 3. Copy URL/format request
@@ -139,6 +156,7 @@ curl http://localhost:3000/api/books
 ---
 
 ### **Path D: Saya mau Full Tutorial** 📖
+
 1. Baca `POSTMAN_TESTING_GUIDE.md` dari awal sampai akhir
 2. Ikuti testing workflow step-by-step
 3. Lihat contoh request & response
@@ -151,22 +169,23 @@ curl http://localhost:3000/api/books
 
 ## 📊 COMPARISON TABLE
 
-| Aspek | Postman | cURL | Quick Ref | This Doc |
-|-------|---------|------|-----------|----------|
-| Setup Time | 2 menit | 0 menit | 0 menit | 0 menit |
-| Kemudahan | ⭐⭐⭐⭐⭐ | ⭐⭐⭐ | ⭐⭐⭐⭐ | ⭐⭐⭐ |
-| Visual | ⭐⭐⭐⭐⭐ | ❌ | ❌ | ⭐⭐ |
-| Learning Curve | Mudah | Medium | Sangat Mudah | Medium |
-| Automation | ⭐⭐ | ⭐⭐⭐⭐⭐ | ⭐⭐ | ❌ |
-| IDE Integration | ❌ | ⭐⭐⭐⭐⭐ | ❌ | ❌ |
-| Resource Usage | Medium | Very Low | None | None |
-| Best For | Testing UI | Scripting | Quick Check | Learning |
+| Aspek           | Postman    | cURL       | Quick Ref    | This Doc |
+| --------------- | ---------- | ---------- | ------------ | -------- |
+| Setup Time      | 2 menit    | 0 menit    | 0 menit      | 0 menit  |
+| Kemudahan       | ⭐⭐⭐⭐⭐ | ⭐⭐⭐     | ⭐⭐⭐⭐     | ⭐⭐⭐   |
+| Visual          | ⭐⭐⭐⭐⭐ | ❌         | ❌           | ⭐⭐     |
+| Learning Curve  | Mudah      | Medium     | Sangat Mudah | Medium   |
+| Automation      | ⭐⭐       | ⭐⭐⭐⭐⭐ | ⭐⭐         | ❌       |
+| IDE Integration | ❌         | ⭐⭐⭐⭐⭐ | ❌           | ❌       |
+| Resource Usage  | Medium     | Very Low   | None         | None     |
+| Best For        | Testing UI | Scripting  | Quick Check  | Learning |
 
 ---
 
 ## 🎯 RECOMMENDED WORKFLOW
 
 ### **Day 1: Learn & Explore**
+
 ```
 1. Baca QUICK_REFERENCE.md (5 menit)
    ↓
@@ -180,6 +199,7 @@ curl http://localhost:3000/api/books
 ```
 
 ### **Day 2+: Production Testing**
+
 ```
 1. Refer QUICK_REFERENCE.md saat butuh endpoint (1 menit)
    ↓
@@ -195,6 +215,7 @@ curl http://localhost:3000/api/books
 ## ✅ CHECKLIST - Testing Semua Endpoint
 
 ### **Authors** 👨‍✍️
+
 - [ ] GET /api/authors - Get all
 - [ ] GET /api/authors?name=xxx - Search
 - [ ] GET /api/authors/:id - Get by ID
@@ -203,6 +224,7 @@ curl http://localhost:3000/api/books
 - [ ] DELETE /api/authors/:id - Delete
 
 ### **Categories** 📂
+
 - [ ] GET /api/categories - Get all
 - [ ] GET /api/categories?name=xxx - Search
 - [ ] GET /api/categories/:id - Get by ID
@@ -211,6 +233,7 @@ curl http://localhost:3000/api/books
 - [ ] DELETE /api/categories/:id - Delete
 
 ### **Books** 📖
+
 - [ ] GET /api/books - Get all
 - [ ] GET /api/books?title=xxx - Search
 - [ ] GET /api/books/:id - Get by ID
@@ -219,6 +242,7 @@ curl http://localhost:3000/api/books
 - [ ] DELETE /api/books/:id - Delete
 
 ### **Members** 👥
+
 - [ ] GET /api/members - Get all
 - [ ] GET /api/members/:id - Get by ID
 - [ ] POST /api/members - Create
@@ -226,12 +250,14 @@ curl http://localhost:3000/api/books
 - [ ] DELETE /api/members/:id - Delete
 
 ### **Loans** 💳
+
 - [ ] GET /api/loans - Get all
 - [ ] GET /api/loans/:id - Get by ID
 - [ ] POST /api/loans - Create loan (borrow)
 - [ ] POST /api/loans/:loanId/return - Return book
 
 ### **Stock Management** 📦
+
 - [ ] Check: Stock berkurang setelah borrow
 - [ ] Check: Stock bertambah setelah return
 - [ ] Check: Tidak bisa borrow jika stock 0
@@ -241,6 +267,7 @@ curl http://localhost:3000/api/books
 ## 🔍 HOW TO READ DOCUMENTATION
 
 ### **Untuk Postman User:**
+
 ```
 START HERE → POSTMAN_TESTING_GUIDE.md
            ↓
@@ -250,6 +277,7 @@ START HERE → POSTMAN_TESTING_GUIDE.md
 ```
 
 ### **Untuk Terminal/cURL User:**
+
 ```
 START HERE → QUICK_REFERENCE.md
            ↓
@@ -259,6 +287,7 @@ START HERE → QUICK_REFERENCE.md
 ```
 
 ### **Untuk Learner:**
+
 ```
 START HERE → This file (README.md)
            ↓
@@ -294,12 +323,14 @@ smart-library-api-main/
 ## 🚨 BEFORE YOU START
 
 **Checklist:**
+
 - [ ] Backend sudah running (`npm start`)
 - [ ] Database sudah terhubung
 - [ ] Server listening di `http://localhost:3000`
 - [ ] Test dengan `curl http://localhost:3000/api/books` di terminal
 
 **Test Connection:**
+
 ```bash
 # Jika berhasil, akan return array books (bisa kosong)
 curl http://localhost:3000/api/books
@@ -312,14 +343,14 @@ curl http://localhost:3000/api/books
 
 ## 🆘 QUICK TROUBLESHOOTING
 
-| Problem | Solution |
-|---------|----------|
-| "Cannot GET /api/books" | Server tidak jalan → `npm start` |
-| Postman error ECONNREFUSED | Backend belum running |
-| cURL command not found (Windows) | Install Git Bash atau gunakan PowerShell |
-| JSON format error | Pastikan Content-Type header: `application/json` |
-| Stok tidak berubah | Pastikan transaction berhasil (lihat response) |
-| "Peminjaman tidak ditemukan" | Loan ID salah atau sudah didelete |
+| Problem                          | Solution                                         |
+| -------------------------------- | ------------------------------------------------ |
+| "Cannot GET /api/books"          | Server tidak jalan → `npm start`                 |
+| Postman error ECONNREFUSED       | Backend belum running                            |
+| cURL command not found (Windows) | Install Git Bash atau gunakan PowerShell         |
+| JSON format error                | Pastikan Content-Type header: `application/json` |
+| Stok tidak berubah               | Pastikan transaction berhasil (lihat response)   |
+| "Peminjaman tidak ditemukan"     | Loan ID salah atau sudah didelete                |
 
 ---
 
@@ -340,7 +371,7 @@ curl http://localhost:3000/api/books
 ✅ **Stock Management** - Auto kurangi stok saat borrow, auto tambah saat return  
 ✅ **Transaction Safety** - Gunakan database transaction untuk konsistensi data  
 ✅ **Error Handling** - Clear error messages untuk debugging  
-✅ **API Documentation** - 4 file dokumentasi lengkap  
+✅ **API Documentation** - 4 file dokumentasi lengkap
 
 ---
 
@@ -360,6 +391,7 @@ Setelah menyelesaikan testing, kamu akan bisa:
 ## 📝 SUMMARY
 
 Pilih metode testing yang kamu suka:
+
 - **GUI Lovers?** → Gunakan **Postman** + `POSTMAN_TESTING_GUIDE.md`
 - **Terminal Lovers?** → Gunakan **cURL** + `CURL_TESTING_COMMANDS.md`
 - **Quick Lookup?** → Gunakan **QUICK_REFERENCE.md**
@@ -371,4 +403,3 @@ Pilih metode testing yang kamu suka:
 
 **Last Updated: 2026-04-27**  
 **Created for: Smart Library API v1.0**
-

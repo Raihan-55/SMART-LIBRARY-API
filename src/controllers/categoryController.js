@@ -1,10 +1,10 @@
-import { CategoryModel } from '../models/categoryModel.js';
+import { CategoryModel } from "../models/categoryModel.js";
 
 export const CategoryController = {
   async getCategories(req, res) {
     try {
       const { name } = req.query;
-      
+
       let categories;
       if (name && name.trim()) {
         // Jika ada parameter pencarian, gunakan search
@@ -13,7 +13,7 @@ export const CategoryController = {
         // Jika tidak ada parameter, return semua data
         categories = await CategoryModel.getAll();
       }
-      
+
       res.json(categories);
     } catch (err) {
       res.status(500).json({ error: err.message });
@@ -24,11 +24,11 @@ export const CategoryController = {
     try {
       const { id } = req.params;
       const category = await CategoryModel.getById(id);
-      
+
       if (!category) {
-        return res.status(404).json({ error: 'Kategori tidak ditemukan' });
+        return res.status(404).json({ error: "Kategori tidak ditemukan" });
       }
-      
+
       res.json(category);
     } catch (err) {
       res.status(500).json({ error: err.message });
@@ -48,12 +48,12 @@ export const CategoryController = {
     try {
       const { id } = req.params;
       const { name } = req.body;
-      
+
       const existingCategory = await CategoryModel.getById(id);
       if (!existingCategory) {
-        return res.status(404).json({ error: 'Kategori tidak ditemukan' });
+        return res.status(404).json({ error: "Kategori tidak ditemukan" });
       }
-      
+
       const updatedCategory = await CategoryModel.update(id, name);
       res.json(updatedCategory);
     } catch (err) {
@@ -64,16 +64,16 @@ export const CategoryController = {
   async deleteCategory(req, res) {
     try {
       const { id } = req.params;
-      
+
       const existingCategory = await CategoryModel.getById(id);
       if (!existingCategory) {
-        return res.status(404).json({ error: 'Kategori tidak ditemukan' });
+        return res.status(404).json({ error: "Kategori tidak ditemukan" });
       }
-      
+
       await CategoryModel.delete(id);
-      res.json({ message: 'Kategori berhasil dihapus' });
+      res.json({ message: "Kategori berhasil dihapus" });
     } catch (err) {
       res.status(500).json({ error: err.message });
     }
-  }
+  },
 };

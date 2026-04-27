@@ -5,19 +5,21 @@ File koleksi Postman untuk testing semua API endpoints Smart Library API.
 ## 📥 Cara Import Collection
 
 ### 1. **Menggunakan Postman Desktop**
-   - Buka Postman
-   - Klik tombol **"Import"** di bagian atas kiri
-   - Pilih **"Upload Files"**
-   - Pilih file `Smart_Library_API.postman_collection.json`
-   - Klik **"Import"**
-   - Koleksi akan muncul di sidebar
+
+- Buka Postman
+- Klik tombol **"Import"** di bagian atas kiri
+- Pilih **"Upload Files"**
+- Pilih file `Smart_Library_API.postman_collection.json`
+- Klik **"Import"**
+- Koleksi akan muncul di sidebar
 
 ### 2. **Menggunakan Postman Web**
-   - Buka https://web.postman.co
-   - Login dengan akun Postman
-   - Klik **"Import"** di bagian atas kiri
-   - Upload file `Smart_Library_API.postman_collection.json`
-   - Koleksi akan tersimpan di workspace
+
+- Buka https://web.postman.co
+- Login dengan akun Postman
+- Klik **"Import"** di bagian atas kiri
+- Upload file `Smart_Library_API.postman_collection.json`
+- Koleksi akan tersimpan di workspace
 
 ---
 
@@ -26,6 +28,7 @@ File koleksi Postman untuk testing semua API endpoints Smart Library API.
 Koleksi dibagi menjadi 5 kategori utama:
 
 ### **1. Authors (Penulis)**
+
 - ✅ `GET /api/authors` - Ambil semua penulis
 - ✅ `GET /api/authors?name=xxx` - Cari penulis berdasarkan nama
 - ✅ `GET /api/authors/:id` - Ambil penulis berdasarkan ID
@@ -34,6 +37,7 @@ Koleksi dibagi menjadi 5 kategori utama:
 - ✅ `DELETE /api/authors/:id` - Hapus penulis
 
 ### **2. Categories (Kategori)**
+
 - ✅ `GET /api/categories` - Ambil semua kategori
 - ✅ `GET /api/categories?name=xxx` - Cari kategori berdasarkan nama
 - ✅ `GET /api/categories/:id` - Ambil kategori berdasarkan ID
@@ -42,6 +46,7 @@ Koleksi dibagi menjadi 5 kategori utama:
 - ✅ `DELETE /api/categories/:id` - Hapus kategori
 
 ### **3. Books (Buku)**
+
 - ✅ `GET /api/books` - Ambil semua buku (dengan detail penulis & kategori)
 - ✅ `GET /api/books?title=xxx` - Cari buku berdasarkan judul
 - ✅ `GET /api/books/:id` - Ambil buku berdasarkan ID
@@ -50,6 +55,7 @@ Koleksi dibagi menjadi 5 kategori utama:
 - ✅ `DELETE /api/books/:id` - Hapus buku
 
 ### **4. Members (Anggota)**
+
 - ✅ `GET /api/members` - Ambil semua anggota
 - ✅ `GET /api/members/:id` - Ambil anggota berdasarkan ID
 - ✅ `POST /api/members` - Daftarkan anggota baru
@@ -57,6 +63,7 @@ Koleksi dibagi menjadi 5 kategori utama:
 - ✅ `DELETE /api/members/:id` - Hapus anggota
 
 ### **5. Loans (Peminjaman)**
+
 - ✅ `GET /api/loans` - Ambil semua data peminjaman
 - ✅ `GET /api/loans/:id` - Ambil peminjaman berdasarkan ID
 - ✅ `POST /api/loans` - Buat peminjaman baru (auto kurangi stok)
@@ -67,6 +74,7 @@ Koleksi dibagi menjadi 5 kategori utama:
 ## 🔧 Cara Menggunakan
 
 ### **Sebelum Testing**
+
 1. Pastikan backend sudah berjalan di `http://localhost:3000`
 2. Database sudah terhubung dengan baik
 3. Semua table sudah dibuat di database
@@ -74,18 +82,21 @@ Koleksi dibagi menjadi 5 kategori utama:
 ### **Testing Alur Lengkap**
 
 **Step 1: Buat Data Master**
+
 1. Buat Author: `POST /api/authors` → Copy ID dari response
 2. Buat Category: `POST /api/categories` → Copy ID dari response
 3. Buat Book: `POST /api/books` (gunakan author_id & category_id dari step 1-2) → Copy ID
 4. Buat Member: `POST /api/members` → Copy ID
 
 **Step 2: Test Peminjaman**
+
 1. Pinjam Buku: `POST /api/loans` (gunakan book_id & member_id dari step 1) → Copy loan ID
 2. Lihat stok berkurang: `GET /api/books/:id`
 3. Return Buku: `POST /api/loans/:loanId/return` (gunakan loan ID dari step 1)
 4. Lihat stok bertambah: `GET /api/books/:id`
 
 **Step 3: Test CRUD**
+
 1. Update data master: `PUT /api/authors/:id`, `PUT /api/categories/:id`, dll
 2. Get by ID: `GET /api/authors/:id`, `GET /api/members/:id`, dll
 3. Search: `GET /api/authors?name=xxx`, `GET /api/books?title=xxx`, dll
@@ -96,7 +107,9 @@ Koleksi dibagi menjadi 5 kategori utama:
 ## 📝 Contoh Request & Response
 
 ### **Buat Author**
+
 **Request:**
+
 ```
 POST http://localhost:3000/api/authors
 Content-Type: application/json
@@ -108,6 +121,7 @@ Content-Type: application/json
 ```
 
 **Response (201 Created):**
+
 ```json
 {
   "id": "550e8400-e29b-41d4-a716-446655440000",
@@ -118,7 +132,9 @@ Content-Type: application/json
 ```
 
 ### **Buat Buku**
+
 **Request:**
+
 ```
 POST http://localhost:3000/api/books
 Content-Type: application/json
@@ -133,6 +149,7 @@ Content-Type: application/json
 ```
 
 **Response (201 Created):**
+
 ```json
 {
   "id": "770e8400-e29b-41d4-a716-446655440002",
@@ -147,7 +164,9 @@ Content-Type: application/json
 ```
 
 ### **Pinjam Buku**
+
 **Request:**
+
 ```
 POST http://localhost:3000/api/loans
 Content-Type: application/json
@@ -160,6 +179,7 @@ Content-Type: application/json
 ```
 
 **Response (201 Created):**
+
 ```json
 {
   "message": "Peminjaman berhasil dicatat!",
@@ -177,13 +197,16 @@ Content-Type: application/json
 ```
 
 ### **Return Buku**
+
 **Request:**
+
 ```
 POST http://localhost:3000/api/loans/990e8400-e29b-41d4-a716-446655440004/return
 Content-Type: application/json
 ```
 
 **Response (200 OK):**
+
 ```json
 {
   "message": "Buku berhasil dikembalikan!",
@@ -214,6 +237,7 @@ Content-Type: application/json
 Collection sudah mencakup semua skenario error:
 
 **404 Not Found** - Data tidak ditemukan
+
 ```json
 {
   "error": "Penulis tidak ditemukan"
@@ -221,6 +245,7 @@ Collection sudah mencakup semua skenario error:
 ```
 
 **400 Bad Request** - Data tidak valid atau duplicate
+
 ```json
 {
   "error": "Buku sedang tidak tersedia (stok habis)."
@@ -228,6 +253,7 @@ Collection sudah mencakup semua skenario error:
 ```
 
 **400 Bad Request** - Buku sudah dikembalikan sebelumnya
+
 ```json
 {
   "error": "Buku ini sudah dikembalikan sebelumnya"
@@ -235,6 +261,7 @@ Collection sudah mencakup semua skenario error:
 ```
 
 **500 Internal Server Error** - Error database
+
 ```json
 {
   "error": "Pesan error dari database"
@@ -255,17 +282,16 @@ Collection sudah mencakup semua skenario error:
 
 ## 🔗 Referensi Cepat
 
-| Operasi | Method | Endpoint |
-|---------|--------|----------|
-| Ambil semua | GET | `/api/{entity}` |
-| Ambil satu | GET | `/api/{entity}/:id` |
-| Cari | GET | `/api/{entity}?name/title=xxx` |
-| Buat | POST | `/api/{entity}` |
-| Update | PUT | `/api/{entity}/:id` |
-| Hapus | DELETE | `/api/{entity}/:id` |
-| Return Buku | POST | `/api/loans/:loanId/return` |
+| Operasi     | Method | Endpoint                       |
+| ----------- | ------ | ------------------------------ |
+| Ambil semua | GET    | `/api/{entity}`                |
+| Ambil satu  | GET    | `/api/{entity}/:id`            |
+| Cari        | GET    | `/api/{entity}?name/title=xxx` |
+| Buat        | POST   | `/api/{entity}`                |
+| Update      | PUT    | `/api/{entity}/:id`            |
+| Hapus       | DELETE | `/api/{entity}/:id`            |
+| Return Buku | POST   | `/api/loans/:loanId/return`    |
 
 ---
 
 **File dibuat untuk Smart Library API Testing** 📚
-

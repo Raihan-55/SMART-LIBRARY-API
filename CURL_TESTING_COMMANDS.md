@@ -7,21 +7,25 @@ File ini berisi curl commands untuk testing semua API endpoints Smart Library ta
 ## 📚 AUTHORS ENDPOINTS
 
 ### 1️⃣ Get All Authors
+
 ```bash
 curl -X GET http://localhost:3000/api/authors
 ```
 
 ### 2️⃣ Search Authors by Name
+
 ```bash
 curl -X GET "http://localhost:3000/api/authors?name=Haruki"
 ```
 
 ### 3️⃣ Get Author by ID
+
 ```bash
 curl -X GET http://localhost:3000/api/authors/{author-id}
 ```
 
 ### 4️⃣ Create Author
+
 ```bash
 curl -X POST http://localhost:3000/api/authors \
   -H "Content-Type: application/json" \
@@ -32,6 +36,7 @@ curl -X POST http://localhost:3000/api/authors \
 ```
 
 ### 5️⃣ Update Author
+
 ```bash
 curl -X PUT http://localhost:3000/api/authors/{author-id} \
   -H "Content-Type: application/json" \
@@ -42,6 +47,7 @@ curl -X PUT http://localhost:3000/api/authors/{author-id} \
 ```
 
 ### 6️⃣ Delete Author
+
 ```bash
 curl -X DELETE http://localhost:3000/api/authors/{author-id}
 ```
@@ -51,21 +57,25 @@ curl -X DELETE http://localhost:3000/api/authors/{author-id}
 ## 📂 CATEGORIES ENDPOINTS
 
 ### 1️⃣ Get All Categories
+
 ```bash
 curl -X GET http://localhost:3000/api/categories
 ```
 
 ### 2️⃣ Search Categories by Name
+
 ```bash
 curl -X GET "http://localhost:3000/api/categories?name=Fiction"
 ```
 
 ### 3️⃣ Get Category by ID
+
 ```bash
 curl -X GET http://localhost:3000/api/categories/{category-id}
 ```
 
 ### 4️⃣ Create Category
+
 ```bash
 curl -X POST http://localhost:3000/api/categories \
   -H "Content-Type: application/json" \
@@ -75,6 +85,7 @@ curl -X POST http://localhost:3000/api/categories \
 ```
 
 ### 5️⃣ Update Category
+
 ```bash
 curl -X PUT http://localhost:3000/api/categories/{category-id} \
   -H "Content-Type: application/json" \
@@ -84,6 +95,7 @@ curl -X PUT http://localhost:3000/api/categories/{category-id} \
 ```
 
 ### 6️⃣ Delete Category
+
 ```bash
 curl -X DELETE http://localhost:3000/api/categories/{category-id}
 ```
@@ -93,21 +105,25 @@ curl -X DELETE http://localhost:3000/api/categories/{category-id}
 ## 📖 BOOKS ENDPOINTS
 
 ### 1️⃣ Get All Books
+
 ```bash
 curl -X GET http://localhost:3000/api/books
 ```
 
 ### 2️⃣ Search Books by Title
+
 ```bash
 curl -X GET "http://localhost:3000/api/books?title=Norwegian"
 ```
 
 ### 3️⃣ Get Book by ID
+
 ```bash
 curl -X GET http://localhost:3000/api/books/{book-id}
 ```
 
 ### 4️⃣ Create Book
+
 ```bash
 curl -X POST http://localhost:3000/api/books \
   -H "Content-Type: application/json" \
@@ -121,6 +137,7 @@ curl -X POST http://localhost:3000/api/books \
 ```
 
 ### 5️⃣ Update Book
+
 ```bash
 curl -X PUT http://localhost:3000/api/books/{book-id} \
   -H "Content-Type: application/json" \
@@ -134,6 +151,7 @@ curl -X PUT http://localhost:3000/api/books/{book-id} \
 ```
 
 ### 6️⃣ Delete Book
+
 ```bash
 curl -X DELETE http://localhost:3000/api/books/{book-id}
 ```
@@ -143,16 +161,19 @@ curl -X DELETE http://localhost:3000/api/books/{book-id}
 ## 👥 MEMBERS ENDPOINTS
 
 ### 1️⃣ Get All Members
+
 ```bash
 curl -X GET http://localhost:3000/api/members
 ```
 
 ### 2️⃣ Get Member by ID
+
 ```bash
 curl -X GET http://localhost:3000/api/members/{member-id}
 ```
 
 ### 3️⃣ Register Member
+
 ```bash
 curl -X POST http://localhost:3000/api/members \
   -H "Content-Type: application/json" \
@@ -164,6 +185,7 @@ curl -X POST http://localhost:3000/api/members \
 ```
 
 ### 4️⃣ Update Member
+
 ```bash
 curl -X PUT http://localhost:3000/api/members/{member-id} \
   -H "Content-Type: application/json" \
@@ -175,6 +197,7 @@ curl -X PUT http://localhost:3000/api/members/{member-id} \
 ```
 
 ### 5️⃣ Delete Member
+
 ```bash
 curl -X DELETE http://localhost:3000/api/members/{member-id}
 ```
@@ -184,16 +207,19 @@ curl -X DELETE http://localhost:3000/api/members/{member-id}
 ## 💳 LOANS ENDPOINTS
 
 ### 1️⃣ Get All Loans
+
 ```bash
 curl -X GET http://localhost:3000/api/loans
 ```
 
 ### 2️⃣ Get Loan by ID
+
 ```bash
 curl -X GET http://localhost:3000/api/loans/{loan-id}
 ```
 
 ### 3️⃣ Create Loan (Borrow Book)
+
 ```bash
 curl -X POST http://localhost:3000/api/loans \
   -H "Content-Type: application/json" \
@@ -205,6 +231,7 @@ curl -X POST http://localhost:3000/api/loans \
 ```
 
 ### 4️⃣ Return Loan (Return Book)
+
 ```bash
 curl -X POST http://localhost:3000/api/loans/{loan-id}/return \
   -H "Content-Type: application/json"
@@ -215,6 +242,7 @@ curl -X POST http://localhost:3000/api/loans/{loan-id}/return \
 ## 🧪 TESTING WORKFLOW EXAMPLE
 
 **Step 1: Create Author**
+
 ```bash
 curl -X POST http://localhost:3000/api/authors \
   -H "Content-Type: application/json" \
@@ -224,6 +252,7 @@ curl -X POST http://localhost:3000/api/authors \
 ```
 
 **Step 2: Create Category**
+
 ```bash
 curl -X POST http://localhost:3000/api/categories \
   -H "Content-Type: application/json" \
@@ -233,6 +262,7 @@ curl -X POST http://localhost:3000/api/categories \
 ```
 
 **Step 3: Create Book**
+
 ```bash
 curl -X POST http://localhost:3000/api/books \
   -H "Content-Type: application/json" \
@@ -248,6 +278,7 @@ curl -X POST http://localhost:3000/api/books \
 ```
 
 **Step 4: Create Member**
+
 ```bash
 curl -X POST http://localhost:3000/api/members \
   -H "Content-Type: application/json" \
@@ -261,6 +292,7 @@ curl -X POST http://localhost:3000/api/members \
 ```
 
 **Step 5: Check Book Stock (before loan)**
+
 ```bash
 curl -X GET http://localhost:3000/api/books/PASTE_BOOK_ID_HERE \
   -w "\n"
@@ -268,6 +300,7 @@ curl -X GET http://localhost:3000/api/books/PASTE_BOOK_ID_HERE \
 ```
 
 **Step 6: Borrow Book**
+
 ```bash
 curl -X POST http://localhost:3000/api/loans \
   -H "Content-Type: application/json" \
@@ -281,6 +314,7 @@ curl -X POST http://localhost:3000/api/loans \
 ```
 
 **Step 7: Check Book Stock (after loan)**
+
 ```bash
 curl -X GET http://localhost:3000/api/books/PASTE_BOOK_ID_HERE \
   -w "\n"
@@ -288,6 +322,7 @@ curl -X GET http://localhost:3000/api/books/PASTE_BOOK_ID_HERE \
 ```
 
 **Step 8: Return Book**
+
 ```bash
 curl -X POST http://localhost:3000/api/loans/PASTE_LOAN_ID_HERE/return \
   -H "Content-Type: application/json" \
@@ -295,6 +330,7 @@ curl -X POST http://localhost:3000/api/loans/PASTE_LOAN_ID_HERE/return \
 ```
 
 **Step 9: Check Book Stock (after return)**
+
 ```bash
 curl -X GET http://localhost:3000/api/books/PASTE_BOOK_ID_HERE \
   -w "\n"
@@ -308,6 +344,7 @@ curl -X GET http://localhost:3000/api/books/PASTE_BOOK_ID_HERE \
 Gunakan format berikut (ganti tanda kutip):
 
 **Create Author:**
+
 ```powershell
 $body = @{
     name = "Haruki Murakami"
@@ -321,6 +358,7 @@ Invoke-WebRequest -Uri "http://localhost:3000/api/authors" `
 ```
 
 **Get All Books:**
+
 ```powershell
 Invoke-WebRequest -Uri "http://localhost:3000/api/books" -Method GET
 ```
@@ -332,6 +370,7 @@ Invoke-WebRequest -Uri "http://localhost:3000/api/books" -Method GET
 Semua response dalam format JSON:
 
 **Success Response (201 Created):**
+
 ```json
 {
   "id": "uuid-here",
@@ -341,6 +380,7 @@ Semua response dalam format JSON:
 ```
 
 **Success Message Response:**
+
 ```json
 {
   "message": "Operasi berhasil!",
@@ -349,6 +389,7 @@ Semua response dalam format JSON:
 ```
 
 **Error Response (400/404/500):**
+
 ```json
 {
   "error": "Deskripsi error"
@@ -360,6 +401,7 @@ Semua response dalam format JSON:
 ## 🚀 Tips Command Line
 
 **Format readable (pretty print JSON):**
+
 ```bash
 # Linux/Mac
 curl -X GET http://localhost:3000/api/books | jq
@@ -369,16 +411,19 @@ curl -X GET http://localhost:3000/api/books | ConvertFrom-Json | ConvertTo-Json
 ```
 
 **Save response ke file:**
+
 ```bash
 curl -X GET http://localhost:3000/api/books > books.json
 ```
 
 **Show headers:**
+
 ```bash
 curl -i http://localhost:3000/api/books
 ```
 
 **Show verbose (debug):**
+
 ```bash
 curl -v http://localhost:3000/api/books
 ```
@@ -386,4 +431,3 @@ curl -v http://localhost:3000/api/books
 ---
 
 **Created for Smart Library API Testing** 🚀
-

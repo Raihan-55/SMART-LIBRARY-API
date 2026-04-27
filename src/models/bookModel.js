@@ -1,4 +1,4 @@
-import { pool } from '../config/db.js';
+import { pool } from "../config/db.js";
 
 export const BookModel = {
   // Mengambil semua buku dengan nama penulis dan kategori (JOIN)
@@ -61,8 +61,8 @@ export const BookModel = {
   },
 
   async delete(id) {
-    const query = 'DELETE FROM books WHERE id = $1 RETURNING *';
+    const query = "DELETE FROM books WHERE id = $1 RETURNING *";
     const result = await pool.query(query, [id]);
     return result.rows[0];
-  }
+  },
 };

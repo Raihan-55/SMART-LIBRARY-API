@@ -1,19 +1,19 @@
-import { pool } from '../config/db.js';
+import { pool } from "../config/db.js";
 
 export const LoanModel = {
   async createLoan(book_id, member_id, due_date) {
     const client = await pool.connect(); // Menggunakan client untuk transaksi
     try {
-      await client.query('BEGIN'); // Mulai transaksi database
+      await client.query("BEGIN"); // Mulai transaksi database
 
       // 1. Cek ketersediaan buku
-      const bookCheck = await client.query('SELECT available_copies FROM books WHERE id = $1', [book_id]);
+      const bookCheck = await client.query("SELECT available_copies FROM books WHERE id = $1", [book_id]);
       if (bookCheck.rows[0].available_copies <= 0) {
-        throw new Error('Buku sedang tidak tersedia (stok habis).');
+        throw new Error("Buku sedang tidak tersedia (stok habis).");
       }
 
       // 2. Kurangi stok buku
-      await client.query('UPDATE books SET available_copies = available_copies - 1 WHERE id = $1', [book_id]);
+      await client.query("UPDATE books SET available_copies = available_copies - 1 WHERE id = $1", [book_id]);
 
       // 3. Catat transaksi peminjaman
       const loanQuery = `
@@ -22,10 +22,10 @@ export const LoanModel = {
       `;
       const result = await client.query(loanQuery, [book_id, member_id, due_date]);
 
-      await client.query('COMMIT'); // Simpan semua perubahan
+      await client.query("COMMIT"); // Simpan semua perubahan
       return result.rows[0];
     } catch (error) {
-      await client.query('ROLLBACK'); // Batalkan jika ada error
+      await client.query("ROLLBACK"); // Batalkan jika ada error
       throw error;
     } finally {
       client.release();
@@ -58,25 +58,25 @@ export const LoanModel = {
   async returnLoan(loanId) {
     const client = await pool.connect();
     try {
-      await client.query('BEGIN'); // Mulai transaksi database
+      await client.query("BEGIN"); // Mulai transaksi database
 
       // 1. Ambil data peminjaman
-      const loanQuery = 'SELECT * FROM loans WHERE id = $1';
+      const loanQuery = "SELECT * FROM loans WHERE id = $1";
       const loanResult = await client.query(loanQuery, [loanId]);
-      
+
       if (loanResult.rows.length === 0) {
-        throw new Error('Peminjaman tidak ditemukan');
+        throw new Error("Peminjaman tidak ditemukan");
       }
 
       const loan = loanResult.rows[0];
 
       // 2. Cek apakah sudah dikembalikan sebelumnya
-      if (loan.status === 'RETURNED') {
-        throw new Error('Buku ini sudah dikembalikan sebelumnya');
+      if (loan.status === "RETURNED") {
+        throw new Error("Buku ini sudah dikembalikan sebelumnya");
       }
 
       // 3. Ubah status peminjaman menjadi RETURNED dan set return_date
-      const currentDate = new Date().toISOString().split('T')[0];
+      const currentDate = new Date().toISOString().split("T")[0];
       const updateLoanQuery = `
         UPDATE loans 
         SET status = 'RETURNED', return_date = $2
@@ -99,19 +99,19 @@ export const LoanModel = {
          JOIN books b ON l.book_id = b.id
          JOIN members m ON l.member_id = m.id
          WHERE l.id = $1`,
-        [loanId]
+        [loanId],
       );
 
-      await client.query('COMMIT'); // Simpan semua perubahan
+      await client.query("COMMIT"); // Simpan semua perubahan
       return {
         loan: finalLoan.rows[0],
-        book: updatedBook.rows[0]
+        book: updatedBook.rows[0],
       };
     } catch (error) {
-      await client.query('ROLLBACK'); // Batalkan jika ada error
+      await client.query("ROLLBACK"); // Batalkan jika ada error
       throw error;
     } finally {
       client.release();
     }
-  }
+  },
 };

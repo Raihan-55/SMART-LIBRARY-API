@@ -1,21 +1,21 @@
-import express from 'express';
-import { MemberController } from '../controllers/memberController.js';
+import express from "express";
+import { MemberController } from "../controllers/memberController.js";
 
 const router = express.Router();
 
 // GET /api/members
-router.get('/', MemberController.getAllMembers);
+router.get("/", MemberController.getAllMembers);
 
 // GET /api/members/:id
-router.get('/:id', MemberController.getMember);
+router.get("/:id", MemberController.getMember);
 
 // POST /api/members
-router.post('/', MemberController.registerMember);
+router.post("/", MemberController.registerMember);
 
 // PUT /api/members/:id
-router.put('/:id', MemberController.updateMember);
+router.put("/:id", MemberController.updateMember);
 
 // DELETE /api/members/:id
-router.delete('/:id', MemberController.deleteMember);
+router.delete("/:id", MemberController.deleteMember);
 
 export default router;

@@ -1,13 +1,13 @@
-import { pool } from '../config/db.js';
+import { pool } from "../config/db.js";
 
 export const MemberModel = {
   async getAll() {
-    const result = await pool.query('SELECT * FROM members ORDER BY joined_at DESC');
+    const result = await pool.query("SELECT * FROM members ORDER BY joined_at DESC");
     return result.rows;
   },
 
   async getById(id) {
-    const query = 'SELECT * FROM members WHERE id = $1';
+    const query = "SELECT * FROM members WHERE id = $1";
     const result = await pool.query(query, [id]);
     return result.rows[0];
   },
@@ -34,8 +34,8 @@ export const MemberModel = {
   },
 
   async delete(id) {
-    const query = 'DELETE FROM members WHERE id = $1 RETURNING *';
+    const query = "DELETE FROM members WHERE id = $1 RETURNING *";
     const result = await pool.query(query, [id]);
     return result.rows[0];
-  }
+  },
 };
